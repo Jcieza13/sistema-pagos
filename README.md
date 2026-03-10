@@ -14,10 +14,11 @@ Proyecto fullstack que integra **backend en Java (Spring Boot)** y **frontend en
 
 ## 📂 Estructura del Proyecto
 
-| Carpeta/Archivo | Descripción                          |
-|-----------------|--------------------------------------|
-| `sistemapagos/` | Raíz del monorepo del sistema de pagos |
-| └── `backend/`  | Módulo backend en Java (Spring Boot) |
+| Carpeta                | Descripción                          |
+|-------------------------|--------------------------------------|
+| `sistemapagos/`         | Raíz del monorepo del sistema de pagos |
+| └── `backend/`          | Módulo backend en Java (Spring Boot) |
+| └── `sistema-pagos-frontend/` | Módulo frontend en Angular 17        |
 
 ---
 
