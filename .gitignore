@@ -1,17 +1,17 @@
-# IDEs
+# === Backend (Java / Spring Boot) ===
+backend/target/
+*.log
+
+# === Frontend (Angular) ===
+sistema-pagos-frontend/node_modules/
+sistema-pagos-frontend/dist/
+sistema-pagos-frontend/.angular/
+
+# === IDEs ===
 .idea/
 .vscode/
 *.iml
 
-# Maven / Java
-target/
-*.log
-
-# Node / Angular
-node_modules/
-dist/
-.angular/
-
-# OS files
+# === OS files ===
 Thumbs.db
 .DS_Store
