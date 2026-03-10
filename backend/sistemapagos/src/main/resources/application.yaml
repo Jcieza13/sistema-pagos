@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: sistema-pagos-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/sistema_pagos?useSSL=false&serverTimezone=UTC
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # crea/actualiza tablas automáticamente
+    show-sql: true       # muestra las queries en consola
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+# Configuración de Swagger/OpenAPI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+  api-docs:
+    path: /api-docs
+    enabled: true
+    spring:
+      jpa:
+        open-in-view: true
+

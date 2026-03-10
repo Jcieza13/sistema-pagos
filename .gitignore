@@ -1,0 +1,31 @@
+# === Backend (Spring Boot / Maven) ===
+target/
+*.log
+*.class
+*.jar
+*.war
+*.ear
+
+# === Frontend (Angular) ===
+node_modules/
+dist/
+tmp/
+out-tsc/
+
+# === IDEs y configuraciones ===
+.idea/
+.vscode/
+*.iml
+
+# === Sistema operativo ===
+.DS_Store
+Thumbs.db
+
+# === Archivos temporales ===
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# === Otros ===
+.env
