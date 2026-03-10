@@ -1,0 +1,64 @@
+<div class="container">
+  <mat-toolbar color="primary">
+    <span>Gestión de Pagos (Admin)</span>
+  </mat-toolbar>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Listado de Pagos</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <table mat-table [dataSource]="pagosDataSource" class="mat-elevation-z2">
+
+        <!-- ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let pago">{{ pago.id }}</td>
+        </ng-container>
+
+        <!-- Estudiante -->
+        <ng-container matColumnDef="estudiante">
+          <th mat-header-cell *matHeaderCellDef>Estudiante</th>
+          <td mat-cell *matCellDef="let pago">{{ pago.estudiante?.nombre }}</td>
+        </ng-container>
+
+        <!-- Monto -->
+        <ng-container matColumnDef="monto">
+          <th mat-header-cell *matHeaderCellDef>Monto</th>
+          <td mat-cell *matCellDef="let pago">{{ pago.monto }}</td>
+        </ng-container>
+
+        <!-- Fecha -->
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef>Fecha</th>
+          <td mat-cell *matCellDef="let pago">{{ pago.fecha }}</td>
+        </ng-container>
+
+        <!-- Estado -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let pago">{{ pago.estado }}</td>
+        </ng-container>
+
+        <!-- Acciones -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let pago">
+            <button mat-raised-button color="primary" (click)="actualizarEstado(pago.id, 'VALIDADO')">
+              Aprobar
+            </button>
+            <button mat-raised-button color="warn" (click)="actualizarEstado(pago.id, 'RECHAZADO')">
+              Rechazar
+            </button>
+
+          </td>
+        </ng-container>
+
+        <!-- Filas -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

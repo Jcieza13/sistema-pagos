@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Registrar Pago (Admin)</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="pagoForm" (ngSubmit)="registrarPago()">
+
+      <!-- Estudiante -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Estudiante</mat-label>
+        <input type="text" matInput [matAutocomplete]="auto" [value]="pagoForm.value.estudiante" />
+
+        <mat-autocomplete #auto="matAutocomplete"
+          (optionSelected)="pagoForm.patchValue({estudiante: $event.option.value})">
+          <!-- 👇 Aquí guardamos el código, mostramos el nombre -->
+          <mat-option *ngFor="let est of estudiantesFiltrados | async" [value]="est.codigo">
+            {{ est.nombre }} ({{ est.codigo }})
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <!-- Monto fijo -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Monto</mat-label>
+        <input matInput type="number" formControlName="monto" />
+      </mat-form-field>
+
+      <!-- Fecha -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" [min]="minDate" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Tipo de Pago -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de Pago</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="EFECTIVO">Efectivo</mat-option>
+          <mat-option value="CHEQUE">Cheque</mat-option>
+          <mat-option value="TRANSFERENCIA">Transferencia</mat-option>
+          <mat-option value="DEPOSITO">Depósito</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Comprobante PDF -->
+      <div class="full-width">
+        <button mat-raised-button color="accent" type="button" (click)="fileInput.click()">
+          Seleccionar archivo
+        </button>
+        <span class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+        <input #fileInput type="file" (change)="onFileSelected($event)" accept="application/pdf" hidden>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit">
+        Registrar Pago
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

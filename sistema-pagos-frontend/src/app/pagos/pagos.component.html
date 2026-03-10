@@ -1,0 +1,77 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Pagos</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+
+        <!-- ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Fecha -->
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+          <!-- Usamos DatePipe -->
+          <td mat-cell *matCellDef="let element">{{ element.fecha | date:'dd/MM/yyyy' }}</td>
+        </ng-container>
+
+        <!-- Cantidad (monto) -->
+        <ng-container matColumnDef="monto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
+          <td mat-cell *matCellDef="let element">{{ element.monto }}</td>
+        </ng-container>
+
+        <!-- Tipo -->
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+          <td mat-cell *matCellDef="let element">{{ element.tipo }}</td>
+        </ng-container>
+
+        <!-- Estado -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+          <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
+        </ng-container>
+
+        <!-- Estudiante -->
+        <ng-container matColumnDef="estudiante">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estudiante</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.estudiante?.nombre }} {{ element.estudiante?.apellido }}
+          </td>
+        </ng-container>
+
+        <!-- Archivo -->
+        <ng-container matColumnDef="file">
+          <th mat-header-cell *matHeaderCellDef>Archivo</th>
+          <td mat-cell *matCellDef="let element">
+            <a *ngIf="element.fileUrl" [href]="element.fileUrl" download="{{ element.fileName }}">
+              {{ element.fileName }}
+            </a>
+          </td>
+        </ng-container>
+
+        <!-- Acciones -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="aprobarPago(element.id)">Aprobar</button>
+            <button mat-button color="warn" (click)="rechazarPago(element.id)">Rechazar</button>
+          </td>
+        </ng-container>
+
+        <!-- Filas -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Paginador -->
+      <mat-paginator [pageSizeOptions]="[5,10,20,30,100]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

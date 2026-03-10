@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <!-- Marca -->
+  <span class="navbar-brand">Sistema de Pagos</span>
+  <span class="spacer"></span>
+
+  <!-- Botones de navegación -->
+  <div class="navbar-buttons">
+    <!-- Home dinámico -->
+    <button mat-raised-button [routerLink]="authService.getHomeRoute()">
+      Home
+    </button>
+
+    <!-- Solo para USER -->
+    <button mat-raised-button *ngIf="authService.isUser()" routerLink="/user/pagos">
+      Mis Pagos
+    </button>
+    <button mat-raised-button *ngIf="authService.isUser()" routerLink="/user/new-pago">
+      Registrar Pago
+    </button>
+
+    <!-- Solo para ADMIN -->
+    <button mat-raised-button *ngIf="authService.isAdmin()" routerLink="/admin/estudiantes">
+      Estudiantes
+    </button>
+    <button mat-raised-button *ngIf="authService.isAdmin()" routerLink="/admin/pagos">
+      Pagos
+    </button>
+    <button mat-raised-button *ngIf="authService.isAdmin()" routerLink="/admin/new-pago">
+      Nuevo Pago
+    </button>
+    <button mat-raised-button *ngIf="authService.isAdmin()" routerLink="/admin/new-estudiante">
+      Nuevo Estudiante
+    </button>
+
+    <!-- Botón de salir -->
+    <button mat-raised-button color="warn" (click)="authService.logout()">Salir</button>
+  </div>
+</mat-toolbar>

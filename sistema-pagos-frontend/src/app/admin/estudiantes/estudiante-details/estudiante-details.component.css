@@ -1,0 +1,75 @@
+/* Contenedor principal */
+.container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Toolbar superior */
+mat-toolbar {
+  background-color: #1976d2; /* Azul corporativo */
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  justify-content: flex-end; /* botón alineado a la derecha */
+}
+
+/* Botón dentro del toolbar */
+mat-toolbar button {
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/* Card que contiene la tabla */
+mat-card {
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Título del card */
+mat-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1976d2; /* azul corporativo */
+  text-align: center;
+}
+
+/* Tabla de pagos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Encabezados de la tabla */
+th.mat-header-cell {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #444;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Celdas de la tabla */
+td.mat-cell {
+  padding: 10px;
+  color: #333;
+  text-align: center;
+}
+
+/* Filas alternadas */
+tr.mat-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Filas con hover */
+tr.mat-row:hover {
+  background-color: #e3f2fd; /* Azul claro */
+  cursor: pointer;
+}
+
+/* Divider */
+mat-divider {
+  margin: 10px 0;
+}

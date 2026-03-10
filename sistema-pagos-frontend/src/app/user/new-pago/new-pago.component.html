@@ -1,0 +1,44 @@
+<h2>Registrar Nuevo Pago</h2>
+
+<form (ngSubmit)="registrarPago()" #pagoForm="ngForm" class="pago-form">
+
+  <!-- Monto -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Monto</mat-label>
+    <input matInput type="number" [(ngModel)]="nuevoPago.monto" name="monto" required />
+  </mat-form-field>
+
+  <!-- Fecha -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fecha</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="nuevoPago.fecha" name="fecha" required />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Tipo de Pago -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Tipo de Pago</mat-label>
+    <mat-select [(ngModel)]="nuevoPago.tipo" name="tipo" required>
+      <mat-option [value]="'EFECTIVO'">Efectivo</mat-option>
+      <mat-option [value]="'CHEQUE'">Cheque</mat-option>
+      <mat-option [value]="'TRANSFERENCIA'">Transferencia</mat-option>
+      <mat-option [value]="'DEPOSITO'">Depósito</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Código de Estudiante -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Código de Estudiante</mat-label>
+    <input matInput type="text" [(ngModel)]="nuevoPago.codigoEstudiante" name="codigoEstudiante" required />
+  </mat-form-field>
+
+  <!-- Archivo PDF (⚠️ sin mat-form-field) -->
+  <div class="full-width">
+    <label for="file">Archivo PDF</label>
+    <input id="file" type="file" (change)="onFileSelected($event)" accept="application/pdf" />
+  </div>
+
+  <!-- Botón -->
+  <button mat-raised-button color="primary" type="submit">Registrar Pago</button>
+</form>

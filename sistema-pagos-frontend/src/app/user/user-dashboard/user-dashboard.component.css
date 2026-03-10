@@ -1,0 +1,13 @@
+.welcome-card {
+  margin-bottom: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+  gap: 20px; /* espacio entre tarjetas */
+}
+
+.stat-card {
+  min-height: 200px;
+}

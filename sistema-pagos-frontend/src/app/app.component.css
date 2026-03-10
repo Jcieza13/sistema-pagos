@@ -1,0 +1,40 @@
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa toda la altura de la ventana */
+  background-color: #f9f9f9; /* fondo claro corporativo */
+}
+
+/* Contenido dinámico */
+.main-content {
+  flex: 1; /* ocupa el espacio disponible entre navbar y footer */
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Ajuste general de tipografía */
+body, html {
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  color: #333;
+}
+
+/* Opcional: estilos globales para enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1976d2; /* azul corporativo al hover */
+}
+
+/* Footer */
+app-footer {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}

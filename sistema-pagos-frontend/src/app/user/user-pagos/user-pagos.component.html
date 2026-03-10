@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Mis Pagos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="pagos" class="mat-elevation-z8">
+
+      <!-- ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let pago"> {{ pago.id }} </td>
+      </ng-container>
+
+      <!-- Monto -->
+      <ng-container matColumnDef="monto">
+        <th mat-header-cell *matHeaderCellDef> Monto </th>
+        <td mat-cell *matCellDef="let pago"> {{ pago.monto | currency:'CLP' }} </td>
+      </ng-container>
+
+      <!-- Fecha -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let pago"> {{ pago.fecha | date:'shortDate' }} </td>
+      </ng-container>
+
+      <!-- Tipo -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let pago"> {{ pago.tipo }} </td>
+      </ng-container>
+
+      <!-- Estado -->
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let pago"> {{ pago.estado }} </td>
+      </ng-container>
+
+      <!-- Archivo -->
+      <ng-container matColumnDef="file">
+        <th mat-header-cell *matHeaderCellDef> Archivo </th>
+        <td mat-cell *matCellDef="let pago">
+          <a *ngIf="pago.fileUrl" [href]="pago.fileUrl" target="_blank">Ver archivo</a>
+        </td>
+      </ng-container>
+
+      <!-- Header y filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

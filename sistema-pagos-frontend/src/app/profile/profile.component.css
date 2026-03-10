@@ -1,0 +1,56 @@
+/* Contenedor principal */
+.container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+mat-card {
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+  text-align: left; /* mejor alineado para datos de perfil */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+}
+
+/* Título */
+mat-card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1976d2; /* azul corporativo */
+  text-align: center;
+}
+
+/* Contenido */
+mat-card-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-top: 1rem;
+}
+
+mat-card-content p {
+  margin: 0.5rem 0;
+}
+
+/* Etiquetas */
+strong {
+  color: #333;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  mat-card {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  mat-card-title {
+    font-size: 1.4rem;
+  }
+
+  mat-card-content {
+    font-size: 0.9rem;
+  }
+}

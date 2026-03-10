@@ -1,0 +1,12 @@
+<div class="app-container">
+  <!-- Navbar compartido -->
+  <app-navbar *ngIf="authService.authState$ | async"></app-navbar>
+
+  <!-- Contenido dinámico -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer compartido -->
+  <app-footer *ngIf="authService.authState$ | async"></app-footer>
+</div>

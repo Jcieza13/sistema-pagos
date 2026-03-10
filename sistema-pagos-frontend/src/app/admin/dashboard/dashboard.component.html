@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <span>{{ titulo }}</span>
+</mat-toolbar>
+
+<p class="descripcion">{{ descripcion }}</p>
+
+<div class="dashboard-container">
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <mat-card-title>Estudiantes</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <p>Total registrados: {{ totalEstudiantes }}</p>
+      <button mat-raised-button color="primary" routerLink="/admin/estudiantes">
+        Ver Estudiantes
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <mat-card-title>Pagos</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <p>Pendientes (CREADO): {{ pagosPendientes }}</p>
+      <p>Aprobados (VALIDADO): {{ pagosAprobados }}</p>
+      <p>Rechazados: {{ pagosRechazados }}</p>
+      <button mat-raised-button color="primary" routerLink="/admin/pagos">
+        Ver Pagos
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

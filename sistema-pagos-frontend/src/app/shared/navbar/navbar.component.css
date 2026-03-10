@@ -1,0 +1,67 @@
+/* Barra principal */
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; /* separa marca y botones */
+  align-items: center;
+  padding: 0 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Contenedor de botones en fila */
+.navbar-buttons {
+  display: flex;       /* 👈 pone los botones en horizontal */
+  gap: 0.5rem;         /* espacio entre botones */
+  align-items: center; /* centra verticalmente */
+}
+
+/* Espaciador */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Botones */
+button[mat-raised-button] {
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: #ffffff;   /* fondo blanco */
+  color: #1976d2;              /* texto azul corporativo */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #e3f2fd;   /* azul muy claro al hover */
+  transform: translateY(-2px); /* efecto sutil de elevación */
+}
+
+/* Botón de logout */
+button[color="warn"] {
+  background-color: #d32f2f;   /* rojo sólido */
+  color: #fff;
+}
+
+button[color="warn"]:hover {
+  background-color: #b71c1c;   /* rojo más oscuro al hover */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  mat-toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  .navbar-buttons {
+    flex-wrap: wrap; /* en pantallas pequeñas se apilan */
+    justify-content: center;
+  }
+
+  button[mat-raised-button] {
+    margin: 0.25rem 0.25rem;
+    font-size: 0.85rem;
+  }
+}

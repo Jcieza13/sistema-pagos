@@ -1,0 +1,62 @@
+/* Contenedor principal */
+.container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+mat-card {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* Título del card */
+mat-card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1976d2; /* azul corporativo */
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+/* Encabezados */
+th.mat-header-cell {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Celdas */
+td.mat-cell {
+  text-align: center;
+  padding: 10px;
+  color: #333;
+}
+
+/* Filas alternadas */
+tr.mat-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Hover en filas */
+tr.mat-row:hover {
+  background-color: #e3f2fd; /* azul claro */
+  cursor: pointer;
+}
+
+/* Divider */
+mat-divider {
+  margin: 10px 0;
+}

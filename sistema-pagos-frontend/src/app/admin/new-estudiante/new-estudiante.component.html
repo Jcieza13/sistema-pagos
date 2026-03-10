@@ -1,0 +1,44 @@
+<h2>Registrar Estudiante</h2>
+
+<form [formGroup]="estudianteForm" (ngSubmit)="registrarEstudiante()" class="estudiante-form">
+
+  <!-- Código -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Código</mat-label>
+    <input matInput formControlName="codigo" required />
+  </mat-form-field>
+
+  <!-- Nombre -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" required />
+  </mat-form-field>
+
+  <!-- Apellido -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Apellido</mat-label>
+    <input matInput formControlName="apellido" required />
+  </mat-form-field>
+
+  <!-- Programa -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Programa</mat-label>
+    <mat-select formControlName="programaId" required>
+      <mat-option *ngFor="let programa of programas" [value]="programa.id">
+        {{ programa.nombre }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Foto -->
+  <div class="full-width">
+    <button mat-raised-button color="accent" type="button" (click)="fileInput.click()">
+      Seleccionar Foto
+    </button>
+    <span class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+    <input #fileInput type="file" (change)="onFileSelected($event)" accept="image/png,image/jpeg" hidden>
+  </div>
+
+  <!-- Botón -->
+  <button mat-raised-button color="primary" type="submit">Registrar</button>
+</form>

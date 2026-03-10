@@ -1,0 +1,44 @@
+<!-- Panel de bienvenida -->
+<mat-card class="welcome-card">
+  <mat-card-header>
+    <mat-card-title>Bienvenido al Sistema de Pagos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Aquí podrás consultar tu deuda pendiente, revisar tus últimos pagos y registrar nuevos pagos fácilmente.
+      Usa la barra superior para navegar entre las secciones.
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<!-- Contenedor en grid para las tarjetas -->
+<div class="dashboard-grid">
+  <!-- Tarjeta de deuda pendiente -->
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <mat-card-title>Deuda Pendiente</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ deudaPendiente | currency:'CLP' }}</p>
+      <p *ngIf="deudaPendiente === 0">¡Estás al día con tus pagos! 🎉</p>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Tarjeta de últimos pagos -->
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <mat-card-title>Últimos Pagos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let pago of ultimosPagos">
+          {{ pago.fecha | date:'shortDate' }} -
+          {{ pago.monto | currency:'CLP' }} -
+          {{ pago.estado }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+</div>
