@@ -67,10 +67,4 @@ updateEstado(pagoId: number, nuevoEstado: string): Observable<Pago> {
       );
   }
 
-  // Descargar archivo asociado a un pago
-  downloadFile(pagoId: number): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/archivo/${pagoId}`, {
-      responseType: 'blob',
-    });
-  }
 }
