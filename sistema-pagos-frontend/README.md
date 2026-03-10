@@ -1,59 +1,137 @@
-# SistemaPagosFrontend
+# 📚 Sistema de Pagos – Frontend (Angular 17)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+Aplicación **Angular 17 standalone** para la gestión de estudiantes y pagos, con soporte multi-rol (**ADMIN**, **USER/ESTUDIANTE**) y autenticación básica.  
+Incluye vistas administrativas, panel de usuario, registro de pagos, perfil, navegación dinámica y documentación completa.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologías utilizadas
+- **Angular 17** (standalone components, router, HttpClient)
+- **Angular Material** (UI/UX moderna y responsiva)
+- **RxJS** (gestión de estado de sesión con `BehaviorSubject`)
+- **TypeScript**
+- **HTML5 / CSS3**
+- **LocalStorage** (persistencia de sesión)
 
+---
+
+## 🏗️ Arquitectura del proyecto
+
+### 📂 Estructura principal
+- `app/`
+  - `services/` → servicios (`AuthService`, `EstudiantesService`, `PagosService`)
+  - `models/` → modelos (`Estudiante`, `Pago`)
+  - `shared/` → componentes compartidos (`Navbar`, `Footer`)
+  - `user/` → vistas para estudiantes (`UserDashboard`, `UserPagos`, `NewPago`)
+  - `admin/` → vistas para administradores (`AdminPagos`, `AdminNewPago`, `Estudiantes`, etc.)
+  - `profile/` → perfil de usuario autenticado
+  - `guards/` → seguridad (`authGuard`, `authorizationGuard`)
+  - `app.component.*` → componente raíz
+- `environments/` → configuración de entorno (`environment.ts`)
+- Archivos raíz: `index.html`, `main.ts`
+
+---
+
+## 🔐 Autenticación y Roles
+- **AuthService** gestiona login/logout, roles y código de estudiante.
+- Roles disponibles:
+  - `ADMIN` → acceso a gestión de estudiantes y pagos.
+  - `USER/ESTUDIANTE` → acceso a panel personal y registro de pagos.
+- Persistencia de sesión en `localStorage`.
+- Guards:
+  - `authGuard` → protege rutas si no hay sesión activa.
+  - `authorizationGuard` → restringe acceso según rol.
+
+---
+
+## 📌 Componentes principales
+
+### 🔧 Compartidos
+- **NavbarComponent** → navegación dinámica según rol, incluye logout.
+- **FooterComponent** → pie de página fijo con estilo corporativo.
+
+### 👤 Usuario (Estudiante)
+- **UserDashboardComponent** → panel con deuda pendiente y últimos pagos.
+- **UserPagosComponent** → listado completo de pagos del estudiante.
+- **NewPagoComponent** → formulario para registrar pagos con comprobante PDF.
+
+### 🛠️ Administrador
+- **AdminPagosComponent** → listado de pagos con acciones de aprobar/rechazar.
+- **AdminNewPagoComponent** → registro de nuevos pagos desde administración.
+- **EstudiantesComponent** → listado y gestión de estudiantes.
+- **EstudianteDetailsComponent** → detalle de estudiante con pagos asociados.
+- **NewEstudianteComponent** → formulario para registrar estudiantes.
+
+### 👤 Perfil
+- **ProfileComponent** → muestra datos del usuario autenticado (username, roles, código de estudiante).
+
+### 🏠 Home
+- **HomeComponent** → página de bienvenida.
+
+---
+
+## 🔧 Servicios
+- **AuthService** → login/logout, roles, sesión, rutas iniciales.
+- **EstudiantesService** → CRUD de estudiantes.
+- **PagosService** → CRUD de pagos (crear, listar, actualizar estado, obtener por estudiante).
+
+---
+
+## ⚙️ Configuración
+- **environment.ts** → define `backendHost` (`http://localhost:8080`).
+- **main.ts** → arranque de la aplicación con `bootstrapApplication`, router y Angular Material.
+- **index.html** → documento raíz con tipografía Roboto y Material Icons.
+
+---
+
+## 🎨 UI/UX
+- Basada en **Angular Material**.
+- Estilos consistentes con colores corporativos (`#1976d2` azul primario).
+- Layout responsivo con `Navbar` y `Footer` fijos.
+- Feedback al usuario mediante `MatSnackBar` (mensajes de éxito/error).
+
+---
+
+## 🗺️ Rutas principales
+
+La aplicación define rutas protegidas y dinámicas según el rol del usuario:
+
+### 🔑 Autenticación
+- `/login` → pantalla de inicio de sesión.
+- `/profile` → perfil del usuario autenticado.
+
+### 🏠 Home
+- `/home` → página de bienvenida.
+
+### 👤 Usuario (Estudiante)
+- `/user/dashboard` → panel principal con deuda pendiente y últimos pagos.
+- `/user/pagos` → listado completo de pagos del estudiante.
+- `/user/new-pago` → formulario para registrar un nuevo pago.
+
+### 🛠️ Administrador
+- `/admin/estudiantes` → gestión de estudiantes.
+- `/admin/estudiantes/:codigo` → detalle de estudiante con pagos asociados.
+- `/admin/new-estudiante` → formulario para registrar un nuevo estudiante.
+- `/admin/pagos` → listado de pagos con acciones de aprobar/rechazar.
+- `/admin/new-pago` → formulario para registrar un nuevo pago.
+
+### 🚫 Seguridad
+- `/unauthorized` → vista mostrada cuando un usuario intenta acceder a una ruta sin permisos.
+
+🔐 **Nota:**  
+- Todas las rutas están protegidas por `authGuard` (requiere sesión activa).  
+- Las rutas de administrador están protegidas adicionalmente por `authorizationGuard` (requiere rol `ADMIN`).  
+
+---
+
+## ▶️ Ejecución
 ```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar en modo desarrollo
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Acceder en navegador
+http://localhost:4200
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
