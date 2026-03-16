@@ -44,6 +44,23 @@ Incluye vistas administrativas, panel de usuario, registro de pagos, perfil, nav
 
 ---
 
+## 🧪 Perfiles de prueba para login
+
+Este sistema incluye perfiles preconfigurados para demostrar distintos roles.  
+Las credenciales fueron agregadas directamente mediante `AuthService` y **no se crean mediante un formulario de registro**.
+
+| 🧑 Perfil        | 👤 Usuario | 🔑 Contraseña | 🎭 Rol |
+|------------------|------------|---------------|----------|
+| ⭐ Administrador | **admin**  | **1234**      | ADMIN    |
+| 👤 Usuario 1     | **user1**  | **1234**      | USER     |
+| 👤 Usuario 2     | **user2**  | **2235**      | USER     |
+
+🔐 Estos perfiles permiten probar el sistema sin necesidad de crear cuentas nuevas.  
+Puedes usarlos para validar el comportamiento del login, la navegación y los permisos según el rol.
+
+
+---
+
 ## 📌 Componentes principales
 
 ### 🔧 Compartidos
