@@ -16,9 +16,13 @@ Proyecto fullstack que integra **backend en Java (Spring Boot)** y **frontend en
 
 | Carpeta                | Descripción                          |
 |-------------------------|--------------------------------------|
-| `sistemapagos/`         | Raíz del monorepo del sistema de pagos |
-| └── `backend/`          | Módulo backend en Java (Spring Boot) |
-| └── `sistema-pagos-frontend/` | Módulo frontend en Angular 17        |
+| `sistemapagos/`         | Raíz del monorepo del sistema de pagos | 
+| └── `backend/`          | Módulo backend en Java (Spring Boot) | 
+| └── `sistema-pagos-frontend/` | Módulo frontend en Angular 17  | 
+
+ [Ver carpeta backend](https://github.com/Jcieza13/sistema-pagos/tree/main/backend) 
+
+[Ver carpeta frontend](https://github.com/Jcieza13/sistema-pagos/tree/main/sistema-pagos-frontend) 
 
 ---
 
